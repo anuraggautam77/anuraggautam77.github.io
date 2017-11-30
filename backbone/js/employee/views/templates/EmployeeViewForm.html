@@ -1,0 +1,87 @@
+<div class="row">
+
+    <form class="form-horizontal span12" id =empForm>
+      
+        <div class="row status-bar">
+    <div class="span12">
+        <div class="alert alert-success" style="display: none">
+            <b>Success!</b> Employee saved successfully
+        </div>
+    </div>
+</div>
+        
+        <fieldset>
+
+            <legend>Form</legend>
+            <br/>
+
+            <div class="row">
+                <div class="span9">
+                <div class="control-group">
+                        <label for="firstName" class="control-label">First Name:</label>
+
+                        <div class="controls">
+                            <input type="text" id="firstName"  name="firstName"/>
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="lastName" class="control-label">last Name :</label>
+                        <div class="controls">
+                            <input type="text" id="lastName"   name="lastName"/>
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="email" class="control-label">Email:</label>
+
+                        <div class="controls">
+                            <input type="text" id="email"    name="email"/>
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+
+ 
+
+                    <div class="control-group">
+                        <label for="year" class="control-label">Date of birth</label>
+
+                        <div class="controls">
+                            <select class="span1" id="month" name="month" value="">
+                                <option value="">month</option>
+                                <% for(var i = 1; i <= 12; i++) { %>
+                                     <option value=<%= i%>><%=i%></option>
+                                 <% } %>
+                            </select>
+                            <input class="span1"  type="text"  id="day" name="day"/>
+                             <input class="span1" type="text" id="year"   name="year"/>
+                            <span class="help-inline"></span>
+                          
+                            
+                        </div>
+                    </div>
+
+                </div>
+ 
+
+            </div>
+
+        </fieldset>
+
+        <div >
+            <a href="#" class="btn btn-primary save">Save</a>
+            <a href="#" class="btn clear">Clear</a>
+        </div>
+
+    </form>
+
+    <div id="detailData"></div>
+    
+    
+</div>
+
+
+
+

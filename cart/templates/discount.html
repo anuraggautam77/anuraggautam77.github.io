@@ -1,0 +1,29 @@
+
+
+<div class="row promorow col-md-12">
+    <div class="col-md-10 col-xs-7 text-left">
+        <p class="text-uppercase">Subtotal</p>
+    </div>
+    <div class="col-md-2 text-center">
+        <div><sup><%=amount.currency%></sup><%=amount.subtotal.toFixed(2)%></div>
+    </div>
+</div>
+<div class="row promorow col-md-12">
+    <div class="col-md-10 col-xs-7 text-left">
+        <p class="text-uppercase">promotion Code <span class="promocodefont"><%=amount.applyCode%></span>  applied</p>
+    </div>
+    <div class="col-md-2 text-center">
+        <div> -<sup><%=amount.currency%></sup><%=amount.disCountPrice.toFixed(2)%></div>
+    </div>
+</div>
+<div class="row promorow col-md-12">
+    <div class="col-md-10 col-xs-7 text-left">
+        <p><span class="text-uppercase">Estimated Shipping </span><sup>*</sup>
+            <br> Your quality free shipping
+        </p>
+    </div>
+    <div class="col-md-2 text-center">
+        <div> Free</div>
+    </div>
+</div>
+

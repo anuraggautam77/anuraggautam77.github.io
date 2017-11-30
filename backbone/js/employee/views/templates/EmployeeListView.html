@@ -1,0 +1,43 @@
+<div class="section group row">
+	<div class="col span2">
+            <strong> Fisrt Name </strong>
+	</div>
+	<div class="col span2">
+	     <strong> Last Name </strong>
+	</div>
+	<div class="col span2">
+                <strong> Email</strong>
+	</div>
+    <div class="col span2">
+         <strong>Action</strong>
+	</div>
+ </div>
+
+ <%  if(data){
+  if(data.length>0){
+ for( var key in data){ %>
+<div class="section group row">
+        <div class="col span2">
+              <%= data[key].firstName %>
+	</div>
+	<div class="col span2">
+	     <%= data[key].firstName %>
+	</div>
+	<div class="col span2">
+               <%= data[key].firstName %>
+	</div>
+    <div class="col span2">
+        <a href="javascript:void()"><span class="delete" id=<%= data[key].id %> 
+           >Delete</span></a>
+    </div>
+ 
+ </div>
+ <% } } else{ %>
+ <div class="section group row">
+	 
+        <div class="col span6">
+            <span class=""></span>  No record Found!!! 
+	</div>
+	 
+ </div>
+ <%} } %>

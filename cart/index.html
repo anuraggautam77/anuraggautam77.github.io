@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <style>
+        body {
+            padding-top: 60px;
+        }
+    </style>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="node_modules/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="cartConatiner">
+        <div class="row col-md-12 col-xs-8 topheading">
+            <h1 class="hidden-xs">Your shoping Bag</h1>
+        </div>
+        <div id="rowCart" >
+            <!--cart rows appended here  -->
+        </div>
+    </div>
+    <div class="col-md-12">
+        <hr>
+    </div>
+    <div class=" row lowerContiner">
+        <div class="lowerLeft hidden-xs">
+            <div class="col-md-4">
+                <div class="col-md-7">
+                    <strong>
+                        <p>Need Help or have Question?</p>
+                    </strong>
+                </div>
+                <div class="col-md-8">
+                    <p>Call Customer Service at:
+                        <br> 1-8000-555-555
+                    </p>
+                </div>
+                <div class="col-md-8">
+                    <p><a href="#">chat with one of our stillist </a>
+                    </p>
+                </div>
+                <div class="col-md-8">
+                    <p><a href="#">See return and exchange policy</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="lowerRight">
+            <div class="col-md-8">
+                <div class=" row col-md-12" id="enterPromoCode">
+                    <!---promocode-->
+                </div>
+                <div class="col-md-12 ">
+                    <hr>
+                </div>
+                <div id="subtotalDiscount">
+                    <!---discount-->
+                </div>
+                <div class="row promorow col-md-12" id="estimatedtotal">
+                    <!---estemated Total-->
+                </div>
+                <div class="col-md-12 ">
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div  id="editcartoverlay">
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="node_modules/underscore/underscore-min.js"></script>
+
+<!--<script type="text/javascript" src="js/util/util.js"></script>
+<script type="text/javascript" src="js/cart.js"></script>
+<script type="text/javascript" src="js/promocode.js"></script>
+<script type="text/javascript" src="js/discount.js"></script>
+<script type="text/javascript" src="js/estimatedtotal.js"></script>
+<script type="text/javascript" src="js/editcart.js"></script>
+<script type="text/javascript" src="js/app.js"></script>-->
+<script type="text/javascript" src="build/index.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,74 @@
+
+
+<div class="row">
+    <div class="col-md-12 headerrow " role="row">
+        <div class=" col-xs-8 visible-xs">
+            <label aria-label="Your shoping Bag">Your shoping Bag</label>
+        </div>
+        <div class="col-md-6 col-xs-4" role="columnheader">
+            <label class="text-uppercase" aria-label="Items">
+                <%=products.length%>
+                <%=(products.length>1)? "Items" : "Item" %>
+            </label>
+        </div>
+        <div class="col-md-2 col-xs-7 hidden-xs text-uppercase" role="columnheader">
+            <label aria-label="Size" >Size</label>
+        </div>
+        <div class="col-md-2 col-xs-7 hidden-xs textcenter text-uppercase" role="columnheader">
+            <label aria-label="Quantity">QTY</label>
+        </div>
+        <div class="col-md-2 col-xs-7 hidden-xs text-uppercase" role="columnheader">
+            <label aria-label="Price">Price</label>
+        </div>
+    </div>
+</div>
+<div class="col-md-12 visible-xs">
+    <hr>
+</div>
+<%
+_.each(products, function(product) {
+var img="assets/T"+product.p_id+".jpg";
+
+%>
+<div class="row borderBttom">
+    <div class="col-md-2 classWithPad  col-xs-5">
+        <img src=<%=img%> class="img-responsive" alt="image">
+    </div>
+    <div class="col-md-4 col-xs-7">
+        <h4 class="nomargin text-uppercase"><%=product.p_variation%> <%=product.p_name%></h4>
+        <div class="lightforntColor">Style#: <span class="text-uppercase"><%=product.p_style%></span></div>
+        <div class="lightforntColor">Color#: <span class="text-capitalize"><%=product.p_selected_color.name%></span></div>
+    </div>
+    <div class="col-md-2">
+        <div class="col-xs-2 lightforntColor  visible-xs">Size#:</div>
+        <span class="col-xs-4 lightforntColor  visible-xs text-uppercase"><%=product.p_selected_size.code%></span>
+        <span class="hidden-xs text-uppercase"><%=product.p_selected_size.code%></span>
+    </div>
+    <div class="col-md-2 col-xs-6 mobileMargin">
+        <div class="row col-xs-5 text-left visible-xs">QTY#:</div>
+        <div class="col-xs-5 text-right">
+            <input class="" maxlength="1" value="<%=product.p_quantity%>" type="text">
+        </div>
+    </div>
+    <div class="col-md-2 pricefont col-xs-5">
+        <p> <span>
+         <% if(product.p_price!=product.p_originalprice){ %>
+         <strike><span><sup><%=product.c_currency%></sup></span><%=product.p_originalprice.toFixed(2)%></strike><br>
+         <sup><%=product.c_currency%></sup><%=product.p_price.toFixed(2)%>
+         <%   }else { %>
+         <sup><%=product.c_currency%></sup><%=product.p_price.toFixed(2)%>
+         <%  }%>
+         </span>
+        </p>
+    </div>
+    <div class="col-xs-12 col-md-8 linksMargin">
+        <p><a class="editbutton"   id="product_<%=product.p_id%>" href="javascript:void(0)">EDIT</a>
+            | <a class="deletebutton"   id="product_<%=product.p_id%>" href="javascript:void(0)">X Remove
+            </a>| Save for later
+        </p>
+    </div>
+</div>
+<%
+});
+%>
+

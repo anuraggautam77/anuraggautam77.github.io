@@ -1,0 +1,78 @@
+
+
+<div  class="overlay shown" style="visibility: visible;">
+    <div class="modalContainer">
+        <div class="col-md-9"></div>
+        <div class="col-md-3">
+            <button type="button" class="close" data-dismiss="" aria-hidden="true">X</button>
+        </div>
+        <div class="lowerRight visible-xs">
+            <div class="col-xs-12 text-center">
+                <%
+                var img="assets/T"+cartdata.p_id+".jpg";
+                %>
+                <img class="col-md-6" src="<%=img%>" alt="...">
+            </div>
+        </div>
+        <div class ="overlayleft">
+            <div class="col-md-5">
+                <div class="col-md-2"></div>
+                <div class="col-md-8  topdistance"></div>
+                <div class="col-md-12 col-xs-12 text-center">
+                    <label class="text-uppercase"><%=cartdata.p_name%></label>
+                    <h1><sup><%=cartdata.c_currency%></sup><%=cartdata.p_price%></h1>
+                    <div>
+                        <%_.each(cartdata.p_available_options.colors ,function(color){
+                        var selectedclass='';
+                        if(color.hexcode==cartdata.p_selected_color.hexcode){
+                        selectedclass="selected";
+                        }
+                        %>
+                        <div style="background-color:<%=color.hexcode%>"  id="<%=color.hexcode%>_<%=color.name%>" class="color_button <%=selectedclass%>" ></div>
+                        <% })  %>
+                    </div>
+                    <div class="col-md-12 col-xs-12 text-center">
+                        <select id="sizedropdown">
+                            <%_.each(cartdata.p_available_options.sizes ,function(size){
+                            var selectedclass='';
+                            if(size.code==cartdata.p_selected_size.code){
+                            selectedclass="selected";
+                            }
+
+
+                            %>
+                            <option value="<%=size.name%>_<%=size.code%>" <%=selectedclass%>>SIZE: <%=size.code%></option>
+                            <% })  %>
+                        </select>
+                        <select id="qtydropdown">
+                            <% for ( var k = 1; k <= 9; k++) {
+                            var selectedclass='';
+                            if(k==cartdata.p_quantity){
+                            selectedclass="selected";
+                            }
+
+                            %>
+                            <option  <%=selectedclass%>  value=<%=k%>>QTY:<%=k%></option>
+                            <%  }  %>
+                        </select>
+                    </div>
+                    <div class="col-md-3 col-xs-12 "></div>
+                    <div class="col-md-9 col-xs-12 ">
+                        <button  class="btn btn-primary text-center col-md-7" id="editbutton" type="button">EDIT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lowerRight hidden-xs">
+            <div class="col-md-7">
+                <div class="margintop">
+                    <%
+                    var img="assets/T"+cartdata.p_id+".jpg";
+                    %>
+                    <img class="col-md-6" src="<%=img%>" alt="...">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

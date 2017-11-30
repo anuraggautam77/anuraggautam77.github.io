@@ -1,0 +1,23 @@
+{
+  "name": "ES6-JQuery-Backbonejs",
+  "version": "1.0.0",
+  "description": "anuraggautam77@gmail.com",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "bootstrap": "",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "jquery ": "",
+    "underscore": ""
+  },
+  "author": "Anurag Gautam",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-uglify": "^3.0.1",
+    "uglify-es": "^3.0.13"
+  }
+}
