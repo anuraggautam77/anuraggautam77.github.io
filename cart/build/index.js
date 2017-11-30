@@ -1,4 +1,4 @@
-window.utils = {
+ window.utils = {
 
     jsonData:null,
     /**
