@@ -17,7 +17,7 @@
           // Examine the text in the response
           response.json().then(function (repos) {
             createReportCard(repos);
-          //  listRepos(repos);
+           listRepos(repos);
           });
         }
       )
