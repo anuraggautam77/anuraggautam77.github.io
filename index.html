@@ -20,6 +20,7 @@
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <script src="assets/plugins/jquery-1.10.2.min.js"></script>
 
     <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
     <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
@@ -58,6 +59,10 @@
                             </a>
                         </li>
                     </ul>
+                </div>
+
+                <div class="pull-right repodetails">
+
                 </div>
 
             </div>
@@ -178,9 +183,110 @@
                             </div>
 
             </div>
+
+
+          
+
         </div>
+
+
+        <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading heading-first">
+                        Github repositories
+                    </div>
+                    <!-- .panel-heading -->
+                                <div class="panel-body">
+                                        <div class="panel-group" id="accordion">
+                                                <div id="ghapidata" class="clearfix"></div>
+                                         </div>
+                                </div>
+                  </div>
+        </div>                                    
+
+
+
+
+
+
+
+
+
+
         <!-- .panel-body -->
     </div>
+
+<script>
+
+$(function(){
+ // $('#ghsubmitbtn').on('click', function(e){
+  
+    $('#ghapidata').html('');
+    
+    var username = $('#ghusername').val();
+    var requri   = 'https://api.github.com/users/anuraggautam77';
+    var repouri  = 'https://api.github.com/users/anuraggautam77/repos';
+    
+    requestJSON(requri, function(json) {
+      if(json.message == "Not Found" || username == '') {
+        $('#ghapidata').html("<h2>No User Info Found</h2>");
+      }
+      
+      else {
+        // else we have a user and we display their info
+        var fullname   = json.name;
+        var username   = json.login;
+        var aviurl     = json.avatar_url;
+        var profileurl = json.html_url;
+        var location   = json.location;
+        var followersnum = json.followers;
+        var followingnum = json.following;
+        var reposnum     = json.public_repos;
+        
+        if(fullname == undefined) { fullname = username; }
+        
+        var outhtml1 = '<h2> Github Profile<h3><h3>'+fullname+' <span class="smallname">(@<a href="'+profileurl+'" target="_blank">'+username+'</a>)</span></h3>';
+        outhtml1 = outhtml1 + '<div class="ghcontent"><div class="avi"><a href="'+profileurl+'" target="_blank"><img src="'+aviurl+'" width="80" height="80" alt="'+username+'"></a></div>';
+        outhtml1 = outhtml1 + '<p>Followers: '+followersnum+' - Following: '+followingnum+'<br>Repos: '+reposnum+'</p></div>';
+       // outhtml1 = outhtml1 + '<div class="repolist clearfix">';
+        
+            $('.repodetails').html(outhtml1);
+
+
+        var repositories;
+        $.getJSON(repouri, function(json){
+          repositories = json;   
+          outputPageContent();                
+        });          
+        var outhtml='';
+
+        function outputPageContent() {
+          if(repositories.length == 0) { outhtml = outhtml + '<p>No repos!</p></div>'; }
+          else {
+            outhtml = outhtml + '<p><h4>Repos List: ('+reposnum+')</h4></p>';
+            $.each(repositories, function(index) {
+
+          outhtml = outhtml + '&nbsp;<a class="btn btn-primary margin-btn" target="_blank" href="'+repositories[index].html_url+'">'+repositories[index].name + ' </a>'
+            });
+        
+          }
+          $('#ghapidata').html(outhtml);
+        } // end outputPageContent()
+      } // end else statement
+    }); // end requestJSON Ajax call
+  }); // end click event handler
+  
+  function requestJSON(url, callback) {
+    $.ajax({
+      url: url,
+      complete: function(xhr) {
+        callback.call(null, xhr.responseJSON);
+      }
+    });
+  }
+//});
+
+</script>
 
 </body>
 
