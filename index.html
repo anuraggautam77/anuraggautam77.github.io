@@ -261,6 +261,8 @@ $(function(){
         var outhtml='';
 
         function outputPageContent() {
+console.log(repositories.length);
+
           if(repositories.length == 0) { outhtml = outhtml + '<p>No repos!</p></div>'; }
           else {
             outhtml = outhtml + '<p><h4>Repos List: ('+reposnum+')</h4></p>';
