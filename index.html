@@ -280,11 +280,7 @@ console.log(repositories.length);
   function requestJSON(url, callback) {
     $.ajax({
       url: url,
-      headers: {
-       X-RateLimit-Limit: 5000,
-       X-RateLimit-Remaining: 4996,
-       X-RateLimit-Reset: 1372700873
-      },
+     
       complete: function(xhr) {
         callback.call(null, xhr.responseJSON);
       }
