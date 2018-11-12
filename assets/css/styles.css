@@ -18,7 +18,7 @@ styles for viewport
 body {
   font-family: 'Lato', arial, sans-serif;
   color: #434343;
-  font-size: 16px;
+  font-size: 14px;
  
 }
 h1,
@@ -27,7 +27,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Montserrat', sans-serif;
+   
   font-weight: 700;
   color: #778492;
 }
@@ -72,7 +72,7 @@ a.dotted-link:hover {
 }
 .header .profile-content .name {
   color: #49515a;
-  font-size: 38px;
+  font-size: 30px;
   margin-bottom: 5px;
   margin-top: 30px;
 }
@@ -119,7 +119,7 @@ a.dotted-link:hover {
   background: rgb(138, 9, 38);
   color: rgb(255, 255, 255);
   font-size: 20px;
-  padding: 10px 0 10px 48px;
+  
 }
 
 
@@ -199,7 +199,10 @@ a.dotted-link:hover {
   margin:5px;
 }
  
+.experties-container{
+  padding: 10px;
 
+}
 
 /* input field */
 #ghusername {
@@ -209,4 +212,8 @@ a.dotted-link:hover {
   color: #666;
   width: 550px;
   margin-bottom: 15px;
+}
+
+.experties-container .caption{
+  text-align: center;
 }
