@@ -72,9 +72,9 @@ a.dotted-link:hover {
 }
 .header .profile-content .name {
   color: #49515a;
-  font-size: 30px;
+  font-size: 26px;
   margin-bottom: 5px;
-  margin-top: 30px;
+  margin-top: 0px;
 }
 .header .profile-content .desc {
   color: #778492;
@@ -111,7 +111,7 @@ a.dotted-link:hover {
 
 
 .profile-image{
-  width:175px;
+  width:101px;
 }
 
 .heading-first{
