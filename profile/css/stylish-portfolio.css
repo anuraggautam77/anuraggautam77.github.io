@@ -91,8 +91,8 @@ h6 {
   display: table;
   width: 100%;
   height: auto;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-top: 4rem;
+  padding-bottom: 5rem;
   background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.1))), url("../img/bg-masthead.jpg");
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../img/bg-masthead.jpg");
   background-position: center center;
@@ -104,6 +104,34 @@ h6 {
   font-size: 4rem;
   margin: 0;
   padding: 0;
+}
+
+.masthead .img-circle {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+
+.masthead .list-inline > li {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
+  font-size: 23px;
+}
+
+.masthead .social a {
+  background: #1a324e;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  border-radius: 50%;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding-top: 10px;
 }
 
 @media (min-width: 992px) {
@@ -204,7 +232,12 @@ h6 {
   background: #343a40;
 }
 
-.service-icon {
+#services.content-section {
+  padding-top: 2.5rem;
+  padding-bottom: 7.5rem;
+}
+
+#services .service-icon {
   background-color: #fff;
   color: #1D809F;
   height: 7rem;
@@ -214,6 +247,18 @@ h6 {
   font-size: 2.25rem;
   -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+#services .thumbnail {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 
 .callout {
@@ -232,7 +277,102 @@ h6 {
   max-width: 30rem;
 }
 
-.portfolio-item {
+#portfolio .panel-green {
+  border-color: #5cb85c;
+}
+
+#portfolio .panel {
+  margin-bottom: 20px;
+  background-color: white;
+  border: 2px solid #5cb85c;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+#portfolio .panel-heading {
+  border-color: #5cb85c;
+  color: white;
+  background-color: #5cb85c;
+  border-bottom: 0;
+}
+
+#portfolio .panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+#portfolio .panel-body {
+  padding: 15px;
+}
+
+#portfolio .thumbnail {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+#portfolio .thumbnail .caption {
+  padding: 9px;
+  color: #333333;
+}
+
+#portfolio .thumbnail p {
+  margin: 0 0 10px;
+}
+
+#portfolio .thumbnail img {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
+#portfolio .thumbnail .img-responsive {
+  height: 128px !important;
+}
+
+.techstack.content-section {
+  padding-top: 3.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.techstack .experties-container {
+  padding: 10px;
+}
+
+.techstack .thumbnail {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.techstack .thumbnail .caption {
+  padding: 9px;
+  color: #333333;
+  text-align: center;
+}
+
+.techstack .thumbnail img {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
+#awards .portfolio-item {
   display: block;
   position: relative;
   overflow: hidden;
@@ -240,7 +380,7 @@ h6 {
   margin: auto auto 1rem;
 }
 
-.portfolio-item .caption {
+#awards .portfolio-item .caption {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -253,48 +393,44 @@ h6 {
   z-index: 1;
 }
 
-.portfolio-item .caption .caption-content {
+#awards .portfolio-item .caption .caption-content {
   color: #fff;
   margin: auto 2rem 2rem;
 }
 
-.portfolio-item .caption .caption-content h2 {
+#awards .portfolio-item .caption .caption-content h2 {
   font-size: 0.8rem;
   text-transform: uppercase;
 }
 
-.portfolio-item .caption .caption-content p {
+#awards .portfolio-item .caption .caption-content p {
   font-weight: 300;
   font-size: 1.2rem;
 }
 
 @media (min-width: 992px) {
-  .portfolio-item {
-    max-width: none;
-    margin: 0;
-  }
-  .portfolio-item .caption {
+  #awards .portfolio-item .caption {
     -webkit-transition: -webkit-clip-path 0.25s ease-out, background-color 0.7s;
     -webkit-clip-path: inset(0px);
     clip-path: inset(0px);
   }
-  .portfolio-item .caption .caption-content {
+  #awards .portfolio-item .caption .caption-content {
     -webkit-transition: opacity 0.25s;
     transition: opacity 0.25s;
     margin-left: 5rem;
     margin-right: 5rem;
     margin-bottom: 5rem;
   }
-  .portfolio-item img {
+  #awards .portfolio-item img {
     -webkit-transition: -webkit-clip-path 0.25s ease-out;
     -webkit-clip-path: inset(-1px);
     clip-path: inset(-1px);
   }
-  .portfolio-item:hover img {
+  #awards .portfolio-item:hover img {
     -webkit-clip-path: inset(2rem);
     clip-path: inset(2rem);
   }
-  .portfolio-item:hover .caption {
+  #awards .portfolio-item:hover .caption {
     background-color: rgba(29, 128, 159, 0.9);
     -webkit-clip-path: inset(2rem);
     clip-path: inset(2rem);
@@ -302,26 +438,8 @@ h6 {
 }
 
 footer.footer {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-}
-
-footer.footer .social-link {
-  display: block;
-  height: 4rem;
-  width: 4rem;
-  line-height: 4.3rem;
-  font-size: 1.5rem;
-  background-color: #1D809F;
-  -webkit-transition: background-color 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out;
-  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
-}
-
-footer.footer .social-link:hover {
-  background-color: #155d74;
-  text-decoration: none;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 a {

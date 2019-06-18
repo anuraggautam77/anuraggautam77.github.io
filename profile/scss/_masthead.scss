@@ -1,24 +1,55 @@
 .masthead {
-  min-height: 30rem;
-  position: relative;
-  display: table;
-  width: 100%;
-  height: auto;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
-  background: linear-gradient(90deg, fade-out($white, 0.9) 0%, fade-out($white, 0.9) 100%), url('../img/bg-masthead.jpg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  h1 {
-    font-size: 4rem;
-    margin: 0;
-    padding: 0;
-  }
-  @media (min-width: 992px) {
-    height: 100vh;
+    min-height: 30rem;
+    position: relative;
+    display: table;
+    width: 100%;
+    height: auto;
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+    background: linear-gradient(90deg, fade-out($white, 0.9) 0%, fade-out($white, 0.9) 100%), url('../img/bg-masthead.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     h1 {
-      font-size: 5.5rem;
+        font-size: 4rem;
+        margin: 0;
+        padding: 0;
     }
-  }
+    .img-circle {
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+    }
+    .list-inline>li {
+        display: inline-block;
+        padding-right: 5px;
+        padding-left: 5px;
+        font-size: 23px;
+    }
+    .social {
+        a {
+            background: rgb(26, 50, 78);
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            border-radius: 50%;
+            -moz-background-clip: padding;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            text-decoration: none;
+            padding-top: 10px;
+        }
+    }
+    @media (min-width: 992px) {
+        height: 100vh;
+        h1 {
+            font-size: 5.5rem;
+        }
+    }
 }
