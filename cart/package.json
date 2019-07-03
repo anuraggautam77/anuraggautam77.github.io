@@ -4,7 +4,9 @@
   "description": "anuraggautam77@gmail.com",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "bootstrap": "",
@@ -12,8 +14,8 @@
     "grunt-cli": "^1.2.0",
     "jquery ": "",
     "underscore": "",
-    "backbone":""
-
+    "backbone": "",
+    "snyk": "^1.189.0"
   },
   "author": "Anurag Gautam",
   "license": "ISC",
@@ -21,5 +23,6 @@
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-uglify": "^3.0.1",
     "uglify-es": "^3.0.13"
-  }
+  },
+  "snyk": true
 }
