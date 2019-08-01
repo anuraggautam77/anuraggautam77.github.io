@@ -1,57 +1,99 @@
-// This is the "Offline page" service worker
+'use strict';
 
-const CACHE = "mystuff-page";
 
-// TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
-const offlineFallbackPage = "ToDo-replace-this-name.html";
+const cacheName = 'my-stuff';
+const filesToCache = [];
+const neverCacheUrls = [];
 
-// Install stage sets up the offline page in the cache and opens a new cache
-self.addEventListener("install", function (event) {
-  console.log("[PWA Builder] Install Event processing");
-
-  event.waitUntil(
-    caches.open(CACHE).then(function (cache) {
-      console.log("[PWA Builder] Cached offline page during install");
-
-      if (offlineFallbackPage === "ToDo-replace-this-name.html") {
-        return cache.add(new Response("TODO: Update the value of the offlineFallbackPage constant in the serviceworker."));
-      }
-
-      return cache.add(offlineFallbackPage);
-    })
-  );
+// Install
+self.addEventListener('install', function(e) {
+	console.log(' service worker installation');
+	e.waitUntil(
+		caches.open(cacheName).then(function(cache) {
+			console.log('service worker caching dependencies');
+			filesToCache.map(function(url) {
+				return cache.add(url).catch(function (reason) {
+					return console.log(' Here: ' + String(reason) + ' ' + url);
+				});
+			});
+		})
+	);
 });
 
-// If any fetch fails, it will show the offline page.
-self.addEventListener("fetch", function (event) {
-  if (event.request.method !== "GET") return;
-
-  event.respondWith(
-    fetch(event.request).catch(function (error) {
-      // The following validates that the request was for a navigation to a new document
-      if (
-        event.request.destination !== "document" ||
-        event.request.mode !== "navigate"
-      ) {
-        return;
-      }
-
-      console.error("[PWA Builder] Network request Failed. Serving offline page " + error);
-      return caches.open(CACHE).then(function (cache) {
-        return cache.match(offlineFallbackPage);
-      });
-    })
-  );
+// Activate
+self.addEventListener('activate', function(e) {
+	console.log('service worker activation');
+	e.waitUntil(
+		caches.keys().then(function(keyList) {
+			return Promise.all(keyList.map(function(key) {
+				if ( key !== cacheName ) {
+					console.log('old cache removed', key);
+					return caches.delete(key);
+				}
+			}));
+		})
+	);
+	return self.clients.claim();
 });
 
-// This is an event that can be fired from your page to tell the SW to update the offline page
-self.addEventListener("refreshOffline", function () {
-  const offlinePageRequest = new Request(offlineFallbackPage);
+// Fetch
+self.addEventListener('fetch', function(e) {
+	
+	// Return if the current request url is in the never cache list
+	if ( ! neverCacheUrls.every(checkNeverCacheList, e.request.url) ) {
+	  console.log( 'PWA: Current request is excluded from cache.' );
+	  return;
+	}
+	
+	// Return if request url protocal isn't http or https
+	if ( ! e.request.url.match(/^(http|https):\/\//i) )
+		return;
+	
+	// Return if request url is from an external domain.
+	if ( new URL(e.request.url).origin !== location.origin )
+		return;
+	
+	// For POST requests, do not use the cache. Serve offline page if offline.
+	if ( e.request.method !== 'GET' ) {
+		e.respondWith(
+			fetch(e.request).catch( function() {
+				return caches.match(offlinePage);
+			})
+		);
+		return;
+	}
+	
+	// Revving strategy
+	if ( e.request.mode === 'navigate' && navigator.onLine ) {
+		e.respondWith(
+			fetch(e.request).then(function(response) {
+				return caches.open(cacheName).then(function(cache) {
+					cache.put(e.request, response.clone());
+					return response;
+				});  
+			})
+		);
+		return;
+	}
 
-  return fetch(offlineFallbackPage).then(function (response) {
-    return caches.open(CACHE).then(function (cache) {
-      console.log("[PWA Builder] Offline page updated from refreshOffline event: " + response.url);
-      return cache.put(offlinePageRequest, response);
-    });
-  });
+	e.respondWith(
+		caches.match(e.request).then(function(response) {
+			return response || fetch(e.request).then(function(response) {
+				return caches.open(cacheName).then(function(cache) {
+					cache.put(e.request, response.clone());
+					return response;
+				});  
+			});
+		}).catch(function() {
+			return caches.match(offlinePage);
+		})
+	);
 });
+
+// Check if current url is in the neverCacheUrls list
+function checkNeverCacheList(url) {
+	if ( this.match(url) ) {
+		return false;
+	}
+	return true;
+}
