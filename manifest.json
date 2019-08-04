@@ -1,8 +1,8 @@
 {
   "name": "My Stuff",
-  "short_name": "Profile",
-  "theme_color": "#454a4e",
-  "background_color": "#111518",
+  "short_name": "Anurag-Biodata",
+  "theme_color": "#000000",
+  "background_color": "#000000",
   "display": "standalone",
   "Scope": "/",
   "start_url": "/",
