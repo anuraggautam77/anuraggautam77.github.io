@@ -10,7 +10,7 @@
     <title>Anurag Gautam </title>
 
 
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="/sw/manifest.json">
 
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -672,7 +672,7 @@
             } else {
                 // Register the service worker
                 navigator.serviceWorker
-                    .register("sw.js", {
+                    .register("/sw/sw.js", {
                         scope: "./"
                     })
                     .then(function (reg) {
