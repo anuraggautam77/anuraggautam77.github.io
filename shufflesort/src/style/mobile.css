@@ -1,0 +1,53 @@
+body {
+	border: 6px solid;
+	border-radius: 7px;
+	height: 100vh;
+}
+
+header {
+	font-size: 25px;
+	background-color: #333333;
+	color: #efefef;
+	border: none;
+}
+
+.container {
+	grid-auto-flow: row;
+}
+.card-container {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+}
+
+.cta-container {
+	grid-row-end: none;
+	margin: 0 auto;
+}
+
+.card-item {
+	border-left: 10px solid;
+	background-color: #efefef;
+	color: #000;
+	margin: 2px 5px;
+	padding: 10px;
+	font-size: 20px;
+}
+
+button {
+	width: auto;
+}
+.color-1 {
+	border-color: #6f98a8;
+}
+.color-2 {
+	border-color: #2b8ead;
+}
+.color-3 {
+	border-color: #2f454e;
+}
+.color-4 {
+	border-color: #bfbfbf;
+}
+.color-5 {
+	border-color: #72c3dc;
+}

@@ -1,0 +1,81 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	padding: 10px 0;
+	text-align: center;
+	border-bottom: 5px solid #000;
+	font-size: 25px;
+}
+
+.container {
+	display: grid;
+	grid-auto-flow: column;
+}
+
+.card-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.card-item {
+	padding: 80px;
+	font-size: 50px;
+	text-align: center;
+	color: #fff;
+}
+
+.color-1 {
+	background-color: #6f98a8;
+}
+.color-2 {
+	background-color: #2b8ead;
+}
+
+.color-3 {
+	background-color: #2f454e;
+}
+.color-4 {
+	background-color: #bfbfbf;
+}
+.color-5 {
+	background-color: #72c3dc;
+}
+
+.cta-container {
+	padding: 10px;
+}
+
+button {
+	background-color: #52c5e8;
+	border: none;
+	color: white;
+	cursor: pointer;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	box-shadow: 0px 6px #085b75;
+	border-radius: 10px;
+	text-transform: uppercase;
+	display: inline-block;
+	font-size: 16px;
+	width: 100%;
+}
+button:last-child {
+	margin-top: 10px;
+}
+button:focus {
+	outline: 0;
+}
+
+button:active {
+	background-color: #37869e;
+}
+
+footer {
+	padding: 10px 0;
+	text-align: center;
+	font-size: 15px;
+}
