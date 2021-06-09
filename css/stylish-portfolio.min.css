@@ -383,7 +383,7 @@ h6 {
 		-webkit-clip-path: inset(-1px);
 		clip-path: inset(-1px);
 	}
-	#awards .portfolio-item:hover img {
+	/*#awards .portfolio-item:hover img {
 		-webkit-clip-path: inset(2rem);
 		clip-path: inset(2rem);
 	}
@@ -391,7 +391,7 @@ h6 {
 		background-color: rgba(29, 128, 159, 0.9);
 		-webkit-clip-path: inset(2rem);
 		clip-path: inset(2rem);
-	}
+	}*/
 }
 footer.footer {
 	padding-top: 2rem;
